@@ -1,0 +1,37 @@
+<!--
+ - Created by odubavets on 03.01.2022.
+ -->
+
+<!-- Input With Increment -->
+<template>
+  <lightning-layout>
+    <lightning-layout-item padding="around-small">
+      <lightning-button-icon
+        icon-name="utility:dash"
+        alternative-text="decrement"
+        title="decrement"
+        onclick={decrement}
+        variant="brand">
+      </lightning-button-icon>
+    </lightning-layout-item>
+    <lightning-layout-item padding="around-small">
+      <lightning-input
+        type="number"
+        value={amount}
+        min={min}
+        max={max}
+        variant="label-hidden"
+        onchange={handleAmountChange}>
+      </lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item padding="around-small">
+      <lightning-button-icon
+        icon-name="utility:add"
+        alternative-text="increment"
+        title="increment"
+        onclick={increment}
+        variant="brand">
+      </lightning-button-icon>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

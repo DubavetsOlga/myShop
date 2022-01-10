@@ -1,0 +1,13 @@
+<!--
+ - Created by odubavets on 03.01.2022.
+ -->
+
+<!-- Add In Basket Label -->
+<template>
+  <template if:true={disabled}>
+    <lightning-button variant="brand" label={label} disabled onclick={handleAddToBasket}></lightning-button>
+  </template>
+  <template if:false={disabled}>
+    <lightning-button variant="brand" label={label} onclick={handleAddToBasket}></lightning-button>
+  </template>
+</template>

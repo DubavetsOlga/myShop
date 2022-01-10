@@ -1,0 +1,18 @@
+<!--
+ - Created by odubavets on 23.12.2021.
+ -->
+
+<!-- Carousel -->
+<template>
+  <div class="slds-size_2-of-4">
+    <lightning-carousel>
+      <template for:each={images} for:item="image">
+        <lightning-carousel-image
+          src={image.Image__c}
+          href="javascript:void(0);"
+          key={image.Id}>
+        </lightning-carousel-image>
+      </template>
+    </lightning-carousel>
+  </div>
+</template>

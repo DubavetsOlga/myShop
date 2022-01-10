@@ -1,0 +1,24 @@
+<!--
+ - Created by odubavets on 27.12.2021.
+ -->
+
+<!-- Commodity Detail -->
+<template>
+  <lightning-record-view-form
+    record-id={recordId}
+    object-api-name="Commodity__c"
+  >
+    <div class="slds-box">
+      <c-favorite-button commodity-id={recordId}></c-favorite-button>
+      <img src={commodityImage}/>
+      <lightning-output-field field-name="Name"></lightning-output-field>
+      <lightning-output-field field-name="Description__c"></lightning-output-field>
+      <lightning-output-field field-name="Price__c"></lightning-output-field>
+      <lightning-output-field field-name="Account__c"></lightning-output-field>
+      <lightning-output-field field-name="Count__c"></lightning-output-field>
+      <lightning-output-field field-name="Category__c"></lightning-output-field>
+    </div>
+  </lightning-record-view-form>
+  <c-add-in-basket-label record={recordId} count={count} active={active}
+                         approved={approved}></c-add-in-basket-label>
+</template>

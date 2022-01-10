@@ -1,0 +1,13 @@
+<!--
+ - Created by odubavets on 03.01.2022.
+ -->
+
+<!-- Add Comment -->
+<template>
+  <div class="c-container">
+    <c-five-star-rating onratingchange={handleRatingChanged}></c-five-star-rating>
+    <lightning-input required label="Comment" onchange={handleChangeComment}></lightning-input>
+    <h6>{error}</h6>
+    <lightning-button variant="brand" label="Add comment" onclick={handleAddComment}></lightning-button>
+  </div>
+</template>

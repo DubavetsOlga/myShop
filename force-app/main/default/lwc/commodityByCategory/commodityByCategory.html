@@ -1,0 +1,21 @@
+<!--
+ - Created by odubavets on 04.01.2022.
+ -->
+
+<!-- Commodity By Category -->
+<template>
+  <lightning-card>
+    <template if:true={commodities}>
+      <div class="slds-scrollable_y">
+        <lightning-layout horizontal-align="left" multiple-rows>
+          <template for:each={commodities} for:item="commodity">
+            <lightning-layout-item key={commodity.Id} padding="around-small" size="12" small-device-size="6"
+                                   medium-device-size="3" large-device-size="2">
+              <c-commodity commodity={commodity}></c-commodity>
+            </lightning-layout-item>
+          </template>
+        </lightning-layout>
+      </div>
+    </template>
+  </lightning-card>
+</template>

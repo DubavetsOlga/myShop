@@ -1,0 +1,31 @@
+<!--
+ - Created by odubavets on 23.12.2021.
+ -->
+
+<!-- Basket Item -->
+<template>
+  <div class="c-container">
+    <lightning-layout vertical-align="stretch" multiple-rows="true" class="x-large">
+      <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box2">
+        <img src={item.Commodity__r.Image__c}/>
+        &nbsp;
+        <a href={href}>{item.Commodity__r.Name}</a>
+        <br>
+        <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" class="slds-m-left_xx-small"
+                               title="Delete" onclick={handleDelete}></lightning-button-icon>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+        <c-input-with-increment amount={amount} max={item.Commodity__r.Count__c} min="1"
+                                onchanged={changeCount}></c-input-with-increment>
+        {issue}
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+        <lightning-formatted-number
+          value={price}
+          format-style="currency"
+          currency-code="USD">
+        </lightning-formatted-number>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+</template>

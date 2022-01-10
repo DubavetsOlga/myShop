@@ -1,0 +1,16 @@
+<!--
+ - Created by odubavets on 03.01.2022.
+ -->
+
+<!-- Order List -->
+<template>
+  <template if:true={orders}>
+    <div class="slds-scrollable_y">
+      <template for:each={orders} for:item="order">
+        <div key={order.Id}>
+          <c-order-item order={order}></c-order-item>
+        </div>
+      </template>
+    </div>
+  </template>
+</template>

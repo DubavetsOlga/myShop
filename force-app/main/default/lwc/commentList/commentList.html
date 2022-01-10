@@ -1,0 +1,19 @@
+<!--
+ - Created by odubavets on 27.12.2021.
+ -->
+
+<!-- Comment List -->
+<template>
+  <lightning-card>
+    <template if:true={comments}>
+      <template for:each={comments} for:item="comment">
+        <lightning-card key={comment.Id}>
+          <c-comment comment={comment}></c-comment>
+        </lightning-card>
+      </template>
+    </template>
+  </lightning-card>
+  <lightning-card if:true={showAddComment}>
+    <c-add-comment commodity={recordId} onnewcomment={handleNewComment}></c-add-comment>
+  </lightning-card>
+</template>

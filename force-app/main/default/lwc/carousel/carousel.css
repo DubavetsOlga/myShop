@@ -1,0 +1,12 @@
+/**
+ * Created by odubavets on 23.12.2021.
+ */
+.slds-carousel__panel {
+    height: 130px !important;
+}
+
+.slds-size_2-of-4 {
+    transform: translate(-50%);
+    position: relative;
+    left: 50%;
+}

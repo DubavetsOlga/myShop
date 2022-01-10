@@ -1,0 +1,39 @@
+<!--
+ - Created by odubavets on 23.12.2021.
+ -->
+
+<!-- Basket -->
+<template>
+  <lightning-card>
+    <template for:each={basketItems} for:item="item">
+      <c-basket-item item={item} key={item.Id} onchanged={handleChangedCount} ondelete={handleDeleteItem}
+                     data-id={item.Id}></c-basket-item>
+    </template>
+  </lightning-card>
+  <lightning-card>
+    <div class="c-container">
+      <lightning-layout vertical-align="stretch" multiple-rows="true" class="x-large">
+        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box2">
+          <h1>Total</h1>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+          {totalCount}
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+          <lightning-formatted-number
+            value={totalPrice}
+            format-style="currency"
+            currency-code="USD">
+          </lightning-formatted-number>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+  </lightning-card>
+  <lightning-card>
+    <lightning-button variant="brand" label="Order" onclick={handleOrder}></lightning-button>
+    <lightning-button label="Clean" onclick={handleClear}></lightning-button>
+  </lightning-card>
+  <template if:true={orderOpen}>
+    <c-order-detail commodities={basketItems} onordered={handleOrdered}></c-order-detail>
+  </template>
+</template>

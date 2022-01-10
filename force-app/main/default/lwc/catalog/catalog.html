@@ -1,0 +1,53 @@
+<!--
+ - Created by odubavets on 21.12.2021.
+ -->
+
+<!-- Catalog -->
+<template>
+  <div class="display_flow_root">
+    <div class="left_block">
+      <lightning-input type="search"></lightning-input>
+      <lightning-combobox
+        name="Sort"
+        label="Sort by"
+        value={valueSort}
+        placeholder="Select Progress"
+        options={optionsSort}></lightning-combobox>
+      <c-categories-tree onselected={handleSelectedCategory}></c-categories-tree>
+      <lightning-card>
+        <div class="with_padding">
+          <h4>Filter</h4>
+          <lightning-slider label="Min price" min="0" max={max} value={valueMinPrice} size="x-small"
+                            onchange={changeMinPrice}></lightning-slider>
+          <lightning-slider label="Max price" min="0" max={max} value={valueMaxPrice} size="x-small"
+                            onchange={changeMaxPrice}></lightning-slider>
+          <lightning-radio-group name="stock"
+                                 options={optionsStock}
+                                 value={valueStock}
+                                 type="radio"
+                                 onchange={changeRadio}></lightning-radio-group>
+          <lightning-slider label="Min rating" min="0" max="5" value={valueRating} size="x-small"
+                            onchange={changeRating}></lightning-slider>
+          <lightning-button label="Get" onclick={clickFilter}></lightning-button>
+        </div>
+      </lightning-card>
+    </div>
+    <div>
+      <template if:true={commodities}>
+        <div class="slds-scrollable_y">
+          <lightning-layout horizontal-align="left" multiple-rows>
+            <template for:each={commodities} for:item="commodity">
+              <lightning-layout-item key={commodity.Id} padding="around-small" size="12" small-device-size="6"
+                                     medium-device-size="3" large-device-size="2">
+                <c-commodity commodity={commodity}></c-commodity>
+              </lightning-layout-item>
+            </template>
+          </lightning-layout>
+        </div>
+      </template>
+      <template if:false={loaded}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+      </template>
+    </div>
+  </div>
+</template>

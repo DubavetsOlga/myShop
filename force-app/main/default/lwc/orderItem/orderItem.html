@@ -1,0 +1,39 @@
+<!--
+ - Created by odubavets on 03.01.2022.
+ -->
+
+<!-- Order Item -->
+<template>
+  <lightning-layout vertical-align="stretch" multiple-rows="true" class="x-large">
+    <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+      {order.formattedDate}
+    </lightning-layout-item>
+    <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+      {order.Status__c}
+    </lightning-layout-item>
+    <lightning-layout-item flexibility="auto" padding="around-small" class="custom-box">
+      <lightning-formatted-number
+        value={order.Price__c}
+        format-style="currency"
+        currency-code="USD">
+      </lightning-formatted-number>
+    </lightning-layout-item>
+  </lightning-layout>
+  <table class="centerTable">
+    <tbody>
+    <template for:each={order.Delivery_Items__r} for:item="item">
+      <tr key={item.Id}>
+        <td>{item.Commodity__r.Name}</td>
+        <td>{item.Count__c}</td>
+        <td>
+          <lightning-formatted-number
+            value={item.Price__c}
+            format-style="currency"
+            currency-code="USD">
+          </lightning-formatted-number>
+        </td>
+      </tr>
+    </template>
+    </tbody>
+  </table>
+</template>

@@ -1,0 +1,30 @@
+<!--
+ - Created by odubavets on 22.12.2021.
+ -->
+
+<!-- Commodity -->
+<template>
+  <div class={tileClass}>
+    <div style={backgroundStyle} class="tile" onclick={selectCommodity}></div>
+    <div class="lower-third">
+      <p>
+        <c-five-star-rating value={commodity.Rating__c} read-only="true"></c-five-star-rating>
+        ({commodity.CountComment__c})
+      </p>
+      <h1 class="slds-truncate slds-text-heading_medium" onclick={selectCommodity}>{commodity.Name}</h1>
+      <h3 class="slds-truncate slds-text-heading_small">{commodity.Description__c}</h3>
+      <div class="slds-text-body_small">
+        Price:
+        <lightning-formatted-number value={commodity.Price__c} format-style="currency"
+                                    currency-code="USD"></lightning-formatted-number>
+      </div>
+      <h4>Manufacturer:&nbsp;
+        <a href={href}>{commodity.Account__r.Name}</a>.
+      </h4>
+      <h4>In stock: {commodity.Count__c }.</h4>
+      <c-favorite-button commodity-id={commodity.Id}></c-favorite-button>
+      <c-add-in-basket-label record={commodity.Id} count={commodity.Count__c} active={commodity.Active__c}
+                             approved={commodity.Approved__c}></c-add-in-basket-label>
+    </div>
+  </div>
+</template>

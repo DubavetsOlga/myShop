@@ -1,0 +1,27 @@
+/**
+ * Created by odubavets on 04.01.2022.
+ */
+.large {
+    height: 200px;
+}
+
+.custom-box {
+    text-align: center;
+    background-color: #f4f6f9;
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    width: 25%;
+}
+
+.centerTable {
+    background: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.centerTable td {
+    border: 1px solid aquamarine;
+    width: 33%;
+    text-align: center;
+}

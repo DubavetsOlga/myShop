@@ -1,0 +1,20 @@
+/**
+ * Created by odubavets on 23.12.2021.
+ */
+.left_block {
+    float: left !important;
+    width: 20% !important;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+.with_padding {
+    padding: 15px;
+}
+
+.display_flow_root {
+    background: white;
+    display: flow-root;
+}

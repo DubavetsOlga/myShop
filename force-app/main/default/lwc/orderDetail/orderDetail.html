@@ -1,0 +1,37 @@
+<!--
+ - Created by odubavets on 27.12.2021.
+ -->
+
+<!-- Order Detail -->
+<template>
+  <lightning-card>
+    <lightning-input-name label="Name" required first-name={firstName} last-name={lastName}
+                          fields-to-display={fields}></lightning-input-name>
+    <lightning-icon icon-name="standard:address" alternative-text="Address" title="Address"></lightning-icon>
+    <lightning-input-address
+      address-label="Address"
+      street-label="Street"
+      city-label="City"
+      country-label="Country"
+      province-label="Province"
+      postal-code-label="PostalCode"
+      street={address.street}
+      city={address.city}
+      country={address.country}
+      province={address.province}
+      postal-code={address.postalCode}
+      required></lightning-input-address>
+    <lightning-icon icon-name="action:call" alternative-text="Click to Call"
+                    size="x-small" title="x-small size"></lightning-icon>
+    <lightning-input type="text" label="Phone" required value={phone}></lightning-input>
+    <lightning-icon icon-name="utility:money" alternative-text="Money"
+                    title="money icon with success variant" variant="success"></lightning-icon>
+    <lightning-combobox label="Payment" value={pay} placeholder="Select Payment"
+                        options={options} onchange={handleChange}></lightning-combobox>
+    <h6>{error}</h6>
+    <lightning-button variant="brand" label="Confirm" onclick={handleOrder}></lightning-button>
+    <template if:false={loaded}>
+      <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+  </lightning-card>
+</template>
