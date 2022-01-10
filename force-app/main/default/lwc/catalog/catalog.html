@@ -12,7 +12,8 @@
         label="Sort by"
         value={valueSort}
         placeholder="Select Progress"
-        options={optionsSort}></lightning-combobox>
+        options={optionsSort}
+        onchange={sortCommodities}></lightning-combobox>
       <c-categories-tree onselected={handleSelectedCategory}></c-categories-tree>
       <lightning-card>
         <div class="with_padding">

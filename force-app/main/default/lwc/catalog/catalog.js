@@ -2,14 +2,14 @@
  * Created by odubavets on 21.12.2021.
  */
 
-import { LightningElement, wire } from "lwc";
+import { LightningElement, track, wire } from "lwc";
 import getCommodities from "@salesforce/apex/ShopController.getCommodities";
 import getByFilter from "@salesforce/apex/ShopController.getByFilter";
 import getMaxPrice from "@salesforce/apex/ShopController.getMaxPrice";
 
 export default class Catalog extends LightningElement {
 
-  commodities = [];
+  @track commodities = [];
   categoryId = null;
   loaded = false;
   valueMinPrice = 0;
@@ -21,7 +21,7 @@ export default class Catalog extends LightningElement {
   @wire(getCommodities, { categoryId: "$categoryId" })
   wiredCommodities({ data }) {
     if (data) {
-      this.commodities = data;
+      this.commodities = JSON.parse(JSON.stringify(data));
       this.loaded = true;
     }
   }
@@ -43,11 +43,17 @@ export default class Catalog extends LightningElement {
 
   get optionsSort() {
     return [
-      { label: "1", value: "1" },
-      { label: "2", value: "2" },
-      { label: "3", value: "3" }
+      { label: "Title", value: "title" },
+      { label: "Rating", value: "rating" },
+      { label: "Price", value: "price" }
     ];
   }
+
+  сomparators = {
+    title: (a, b) => a.Name > b.Name ? 1 : a.Name < b.Name ? -1 : 0,
+    rating: (a, b) => b.Rating__c - a.Rating__c,
+    price: (a, b) => a.Price__c - b.Price__c,
+  };
 
   handleSelectedCategory(event) {
     this.categoryId = event.detail.categoryId;
@@ -84,5 +90,8 @@ export default class Catalog extends LightningElement {
     this.valueRating = event.detail.value;
   }
 
-}
+  sortCommodities(event) {
+    this.commodities.sort(this.сomparators[event.detail.value]);
+  }
 
+}
