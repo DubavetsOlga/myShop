@@ -34,10 +34,10 @@
       </lightning-card>
     </div>
     <div>
-      <template if:true={commodities}>
+      <template if:true={vcommodities}>
         <div class="slds-scrollable_y">
           <lightning-layout horizontal-align="left" multiple-rows>
-            <template for:each={commodities} for:item="commodity">
+            <template for:each={vcommodities} for:item="commodity">
               <lightning-layout-item key={commodity.Id} padding="around-small" size="12" small-device-size="6"
                                      medium-device-size="3" large-device-size="2">
                 <c-commodity commodity={commodity}></c-commodity>

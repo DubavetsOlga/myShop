@@ -16,7 +16,7 @@ export default class Catalog extends LightningElement {
   valueMaxPrice;
   valueStock = "All";
   valueRating = 0;
-  valueSort = "1";
+  valueSort = "title";
 
   @wire(getCommodities, { categoryId: "$categoryId" })
   wiredCommodities({ data }) {
@@ -55,6 +55,12 @@ export default class Catalog extends LightningElement {
     price: (a, b) => a.Price__c - b.Price__c,
   };
 
+  currentComparator = this.сomparators.title;
+
+  get vcommodities() {
+    return this.commodities.sort(this.currentComparator);
+  }
+
   handleSelectedCategory(event) {
     this.categoryId = event.detail.categoryId;
   }
@@ -91,7 +97,7 @@ export default class Catalog extends LightningElement {
   }
 
   sortCommodities(event) {
-    this.commodities.sort(this.сomparators[event.detail.value]);
+    this.currentComparator = this.сomparators[event.detail.value];
   }
 
 }
