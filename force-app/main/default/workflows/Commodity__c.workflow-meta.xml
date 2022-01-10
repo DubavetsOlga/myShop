@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Approved_Comodity</fullName>
+        <description>Approved Comodity</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Approve_Commodity</template>
+    </alerts>
+    <alerts>
+        <fullName>Coont_commodity_is_zero</fullName>
+        <description>Coont commodity is zero</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Count_commidity_is_zero</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Commodity</fullName>
+        <description>New Commodity</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>olga.dubavets@wise-hawk-vft9lf.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/New_Commodity</template>
+    </alerts>
+    <alerts>
+        <fullName>Not_approved_commodity</fullName>
+        <description>Not approved commodity</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Not_Approved_Commodity</template>
+    </alerts>
+    <alerts>
+        <fullName>Set_not_active_commodity</fullName>
+        <description>Set not active commodity</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Set_not</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Active</fullName>
+        <field>Active__c</field>
+        <literalValue>1</literalValue>
+        <name>Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approved</fullName>
+        <field>Approved__c</field>
+        <literalValue>0</literalValue>
+        <name>Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ApprovedYes</fullName>
+        <field>Approved__c</field>
+        <literalValue>1</literalValue>
+        <name>ApprovedYes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

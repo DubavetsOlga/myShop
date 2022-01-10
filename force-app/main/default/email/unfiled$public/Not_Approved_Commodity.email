@@ -1,0 +1,3 @@
+Hi!
+You commodity {!Commodity__c.Name} was not approved.
+Because {!ApprovalRequest.Comments}.

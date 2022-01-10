@@ -1,0 +1,4 @@
+Hi!
+You have to approved new commodity {!Commodity__c.Name} from {!Account.Name}.
+Ссылка на утверждение {!ApprovalRequest.Internal_URL}.
+Thank you.

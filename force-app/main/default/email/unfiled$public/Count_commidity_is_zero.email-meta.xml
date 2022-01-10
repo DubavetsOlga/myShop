@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Count commidity is zero</name>
+    <style>none</style>
+    <subject>Count commodity is zero</subject>
+    <textOnly>Hi! Count {!Commodity__c.Name} is zero. https://wise-hawk-vft9lf-dev-ed.lightning.force.com/lightning/r/Commodity__c/{!Commodity__c.Id}/view</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

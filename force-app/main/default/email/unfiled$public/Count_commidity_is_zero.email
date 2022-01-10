@@ -1,0 +1,3 @@
+Hi!
+Count {!Commodity__c.Name} is zero.
+https://wise-hawk-vft9lf-dev-ed.lightning.force.com/lightning/r/Commodity__c/{!Commodity__c.Id}/view
