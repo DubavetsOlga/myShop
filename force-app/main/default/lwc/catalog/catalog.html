@@ -6,7 +6,7 @@
 <template>
   <div class="display_flow_root">
     <div class="left_block">
-      <lightning-input type="search"></lightning-input>
+      <lightning-input type="search" onchange={searchCommodities}></lightning-input>
       <lightning-combobox
         name="Sort"
         label="Sort by"

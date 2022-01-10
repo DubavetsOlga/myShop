@@ -52,13 +52,20 @@ export default class Catalog extends LightningElement {
   сomparators = {
     title: (a, b) => a.Name > b.Name ? 1 : a.Name < b.Name ? -1 : 0,
     rating: (a, b) => b.Rating__c - a.Rating__c,
-    price: (a, b) => a.Price__c - b.Price__c,
+    price: (a, b) => a.Price__c - b.Price__c
   };
 
   currentComparator = this.сomparators.title;
 
   get vcommodities() {
-    return this.commodities.sort(this.currentComparator);
+    return this.commodities.filter(commodity => {
+      for (let word of this.searchString.split(/[ ,._-]/)) {
+        if (commodity.Name.toLowerCase().includes(word.toLowerCase())) {
+          return true;
+        }
+      }
+      return false;
+    }).sort(this.currentComparator);
   }
 
   handleSelectedCategory(event) {
@@ -98,6 +105,13 @@ export default class Catalog extends LightningElement {
 
   sortCommodities(event) {
     this.currentComparator = this.сomparators[event.detail.value];
+  }
+
+  searchString = "";
+
+  searchCommodities(event) {
+    this.searchString = event.detail.value;
+    console.log(this.searchString);
   }
 
 }
